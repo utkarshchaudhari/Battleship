@@ -55,6 +55,14 @@ h2{
     cursor: pointer;
 }
 
+.grid.active {
+    background-color: #85ffb3;
+}
+
+.enemy .grid:hover {
+    background-color: #ddd;
+}
+
 .footer{
     position: absolute;
     bottom: 0;

@@ -1,4 +1,4 @@
-function player(name, board, isComputer) {
+export default function player(name, board, isComputer) {
   const attack = (x, y) => {
     if (isComputer) {
       const attacks = [];

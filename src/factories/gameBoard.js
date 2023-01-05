@@ -1,4 +1,4 @@
-function gameBoard() {
+export default function gameBoard() {
   const ships = [];
   const missedAttacks = [];
   const placeShip = (ship, x, y) => {
