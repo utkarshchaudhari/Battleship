@@ -56,7 +56,17 @@ h2{
 }
 
 .grid.active {
+    background-color: rgb(67, 65, 65);
+}
+
+.grid.hit{
+    background-color: #ff8585;
+    cursor: not-allowed;
+}
+
+.grid.missed {
     background-color: #85ffb3;
+    cursor: not-allowed;
 }
 
 .enemy .grid:hover {

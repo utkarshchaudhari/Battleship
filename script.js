@@ -66,6 +66,20 @@ function game() {
       x++;
     }
   }
+
+  computerBoard.childNodes.forEach((child) =>
+    child.addEventListener('click', () => {
+      const x = child.getAttribute('data-x');
+      const y = child.getAttribute('data-y');
+      if (child.classList.contains('hit') || child.classList.contains('missed'))
+        return;
+      if (computerGameBoard.receiveAttack(x, y)) {
+        child.classList.add('hit');
+      } else {
+        child.classList.add('missed');
+      }
+    })
+  );
 }
 
 setupGrid();
