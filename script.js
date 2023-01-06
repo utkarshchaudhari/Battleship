@@ -26,6 +26,8 @@ function setupGrid() {
 function game() {
   const playerGameBoard = new gameBoard();
   const computerGameBoard = new gameBoard();
+  const player1 = new player('Player', computerGameBoard, false);
+  const player2 = new player('Computer', playerGameBoard, true);
   const pShip5 = new ship(5);
   const pShip4 = new ship(4);
   const pShip3 = new ship(3);
@@ -73,10 +75,26 @@ function game() {
       const y = child.getAttribute('data-y');
       if (child.classList.contains('hit') || child.classList.contains('missed'))
         return;
-      if (computerGameBoard.receiveAttack(x, y)) {
+      if (player1.attack(x, y)) {
         child.classList.add('hit');
       } else {
         child.classList.add('missed');
+      }
+
+      if (player2.attack()) {
+        const x = player2.attacks.slice(-1)[0].x;
+        const y = player2.attacks.slice(-1)[0].y;
+        const elem = [...playerBoard.childNodes].find(
+          (child) => child.dataset.x == x && child.dataset.y == y
+        );
+        elem.classList.add('hit');
+      } else {
+        const x = player2.attacks.slice(-1)[0].x;
+        const y = player2.attacks.slice(-1)[0].y;
+        const elem = [...playerBoard.childNodes].find(
+          (child) => child.dataset.x == x && child.dataset.y == y
+        );
+        elem.classList.add('missed');
       }
     })
   );
