@@ -77,6 +77,11 @@ function game() {
         return;
       if (player1.attack(x, y)) {
         child.classList.add('hit');
+        if (computerGameBoard.allshipsSunk()) {
+          document.getElementById('modal').classList.add('active');
+          document.getElementById('overlay').classList.add('active');
+          document.querySelector('.game__status').textContent = 'You Won';
+        }
       } else {
         child.classList.add('missed');
       }
@@ -88,6 +93,11 @@ function game() {
           (child) => child.dataset.x == x && child.dataset.y == y
         );
         elem.classList.add('hit');
+        if (playerGameBoard.allshipsSunk()) {
+          document.getElementById('modal').classList.add('active');
+          document.getElementById('overlay').classList.add('active');
+          document.querySelector('.game__status').textContent = 'You Lost';
+        }
       } else {
         const x = player2.attacks.slice(-1)[0].x;
         const y = player2.attacks.slice(-1)[0].y;
@@ -102,3 +112,11 @@ function game() {
 
 setupGrid();
 game();
+
+document.querySelector('.play__btn').addEventListener('click', () => {
+  document.querySelectorAll('.grid').forEach((grid) => grid.remove());
+  setupGrid();
+  game();
+  document.getElementById('modal').classList.remove('active');
+  document.getElementById('overlay').classList.remove('active');
+});
