@@ -38,16 +38,8 @@ function game() {
   playerGameBoard.placeShip(pShip3, 7, 9);
   playerGameBoard.placeShip(pShip4, 4, 6);
   playerGameBoard.placeShip(pShip5, 2, 1);
-  const cShip5 = new ship(5);
-  const cShip4 = new ship(4);
-  const cShip3 = new ship(3);
-  const cShip2 = new ship(2);
-  const cShip1 = new ship(1);
-  computerGameBoard.placeShip(cShip1, 0, 0);
-  computerGameBoard.placeShip(cShip2, 3, 3);
-  computerGameBoard.placeShip(cShip3, 7, 9);
-  computerGameBoard.placeShip(cShip4, 4, 6);
-  computerGameBoard.placeShip(cShip5, 2, 1);
+
+  for (let i = 5; i > 0; i--) computerGameBoard.placeShip(new ship(i));
 
   playerGameBoard.ships.forEach((ship) =>
     showShip(ship, [...playerBoard.childNodes])

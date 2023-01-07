@@ -1,7 +1,17 @@
 export default function gameBoard() {
   const ships = [];
   const missedAttacks = [];
+  const undefinedCoord = [];
   const placeShip = (ship, x, y) => {
+    if (x === undefined && y === undefined) {
+      while (true) {
+        x = Math.floor(Math.random() * 10);
+        y = Math.floor(Math.random() * 10);
+        if (undefinedCoord.find((obj) => obj.x == x && obj.y == y)) continue;
+        undefinedCoord.push({ x: x, y: y });
+        break;
+      }
+    }
     ship.x = x;
     ship.y = y;
     ships.push(ship);
