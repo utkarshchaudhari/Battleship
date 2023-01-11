@@ -88,18 +88,52 @@ h2{
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
     z-index: 2;
-    width: 400px;
-    height: 250px;
     background-color: #eee;
-    border-radius: 10px;
     text-align: center;
     padding: 30px;
 }
 
-.modal.active{
+.welcome_modal{
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 350px;
+    height: 500px;
+}
+
+.welcome_modal .heading{
+    font-weight: 600;
+}
+
+.welcome_modal p {
+    font-size: 22px;
+}
+
+.welcome_modal .game-board{
+    width: 300px;
+    height: 300px;
+}
+
+#welcome_modal.inactive{
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.green {
+    background-color: #85ffb3;
+}
+
+.status_modal{
+    transform: translate(-50%, -50%) scale(0);
+    width: 400px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+#modal.active{
     transform: translate(-50%, -50%) scale(1);
 }
 

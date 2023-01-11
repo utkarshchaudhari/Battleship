@@ -7,8 +7,16 @@ export default function gameBoard() {
       while (true) {
         x = Math.floor(Math.random() * 10);
         y = Math.floor(Math.random() * 10);
-        if (undefinedCoord.find((obj) => obj.x == x && obj.y == y)) continue;
-        undefinedCoord.push({ x: x, y: y });
+        if (x + ship.length > 9) continue;
+        else if (undefinedCoord.some((obj) => obj.x == x && obj.y == y))
+          continue;
+        else if (
+          undefinedCoord.some((obj) => obj.x == x + ship.length && obj.y == y)
+        )
+          continue;
+        for (let xCord = x - 1; xCord < x + ship.length + 1; xCord++) {
+          undefinedCoord.push({ x: xCord, y: y });
+        }
         break;
       }
     }

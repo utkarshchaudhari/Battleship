@@ -14,6 +14,11 @@
     <main class="main">
         <div class="container">
             <h1>BATTLESHIP</h1>
+            <div id="welcome_modal" class="modal welcome_modal">
+                <p class="heading">Welcome to battleship game</p>
+                <p>Place your ship</p>
+                <div class="welcome game-board"></div>
+            </div>
             <div class="game-boards">
                 <div class="friendly__wrappper">
                     <h2>FRIENDLY WATERS</h2>
@@ -33,11 +38,11 @@
         </div>
     </footer>
 
-    <div id="modal" class="modal">
+    <div id="modal" class="modal status_modal">
         <h1 class="game__status"></h1>
         <button class="play__btn">Play again</button>
     </div>
-    <div id="overlay"></div>
+    <div id="overlay" class="active"></div>
 </body>
 
 </html>
