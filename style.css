@@ -47,11 +47,13 @@ h2{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    border: 1px solid #222;
+    border-top: 2px solid #222;
+    border-left: 2px solid #222;
 }
 
 .grid{
-    border: 0.5px solid #222;
+    border-bottom: 2px solid #222;
+    border-right: 2px solid #222;
     cursor: pointer;
 }
 
@@ -61,15 +63,13 @@ h2{
 
 .grid.hit{
     background-color: #ff8585;
-    cursor: not-allowed;
 }
 
 .grid.missed {
     background-color: #85ffb3;
-    cursor: not-allowed;
 }
 
-.enemy .grid:hover {
+.enemy .grid:not(.hit, .missed):hover {
     background-color: #ddd;
 }
 
