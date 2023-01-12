@@ -39,6 +39,7 @@ function game() {
     ...document.querySelector('.welcome.game-board').childNodes,
   ];
 
+  //Placing player ships
   let j = 5;
   const placedShips = [];
   welcomeGrid.forEach((grid) => {
@@ -80,10 +81,8 @@ function game() {
     });
   });
 
+  //Placing computer ships
   for (let i = 5; i > 0; i--) computerGameBoard.placeShip(new ship(i));
-  computerGameBoard.ships.forEach((ship) =>
-    showShip(ship, [...computerBoard.childNodes])
-  );
 
   function showShip(ship, nodes) {
     let x = ship.x;
@@ -98,6 +97,7 @@ function game() {
     }
   }
 
+  //Game loop
   computerBoard.childNodes.forEach((child) =>
     child.addEventListener('click', () => {
       const x = child.getAttribute('data-x');
@@ -142,6 +142,7 @@ function game() {
 setupGrid();
 game();
 
+//Re-play the game
 document.querySelector('.play__btn').addEventListener('click', () => {
   document.querySelectorAll('.grid').forEach((grid) => grid.remove());
   setupGrid();
